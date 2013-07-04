@@ -41,6 +41,9 @@ module Rack
         html = case type.to_sym
         when :challenge
           %{<script type="text/javascript" src="#{path}/challenge?#{params}">
+          var RecaptchaOptions = {
+          theme : 'clean'
+           };
             </script>}.gsub(/^ +/, '')
         when :noscript
           %{<noscript>
